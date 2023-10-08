@@ -1,39 +1,15 @@
-import React,{ Component } from "react";
+const Header = (props) =>  {
 
-class Header extends Component {
-
-    state = {
-        title:'The keyword are:',
-        keywords:'',
-        count:0
-    }
-
-    
-    inputChange = (event) => {
-        this.setState({
-            keywords: event.target.value
-        })
-    }
-
-    addOne(){
-        this.setState((state,props)=>({
-            count: state.count + 1
-        }))
-    }
-
-
-    render(){
-        
         return (
             <>
-                <header>
+                <header className={props.active ? 'active' : 'non-active'}>
+                {/* <header style={{background: `${this.state.active ? 'red' : 'blue'}`}}> */}
                     <div className="logo">Logo</div>
-                    <input onChange={(e)=> this.inputChange(e)}/>
+                    <input onChange={props.keyword}/>
+                    <button onClick={props.changeColor}>Change it</button>
                 </header>
             </>
         )
     }
-
-}
 
 export default Header;
