@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import Post from "./post";
 
 const App = ({initialCount}) => {
     
@@ -14,6 +15,24 @@ const App = ({initialCount}) => {
         }
     ]);
 
+    const hey = 'hello';
+    const alertSomething = () => alert('something');
+
+    
+    
+    // useEffect(()=> {
+    //     console.log(state)
+        
+    // }, [state])
+
+    // useEffect(()=>{
+    //     console.log(posts)
+    // }, [posts])
+
+    // useEffect(()=>{
+    //     console.log('mounted');
+    // }, [])
+    
     // const addOne = () => {
     //     setCount(count + 1);
     // }
@@ -38,6 +57,10 @@ const App = ({initialCount}) => {
         ])
     }
 
+    const removeOnePost = () => {
+        setPosts([])
+    }
+
     return(
         <>
             <h1>{ state.user }</h1>
@@ -48,13 +71,10 @@ const App = ({initialCount}) => {
 
             <hr/>
             {posts.map((item,i)=> (
-                <div key={i}>
-                    <div>{item.name}</div>
-                    <div>{item.body}</div>
-                    <hr/>
-                </div>
+               < Post item={item} key={i} />
             ))}
-            <button onClick={addOnePost}>Add one More</button>
+            <button onClick={addOnePost}>Add one Post</button>
+            <button onClick={removeOnePost}>Remove one post</button>
         </>
     )
 }
