@@ -1,12 +1,23 @@
+import React,{ Component } from "react";
 import UsersItem from "./usersItem";
+import { MyContext } from "../context";
 
-const Users = () => {
+class Users extends Component {
+    // static contextType = MyContext;
 
-    return(
-        <>
-            < UsersItem />
-        </>
-    )
+    render() {
+        // console.log(this.context)
+        return(
+            <>
+                <MyContext.Consumer>
+                    {context => {
+                        console.log(context)
+                    }}
+                </MyContext.Consumer>
+                < UsersItem />
+            </>
+        )
+    }
 }
 
 export default Users;
