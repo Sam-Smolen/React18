@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Mycontext } from "./context";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'react-toastify/dist/ReactToastify.css';
 import './style/app.css'
 import Stage1 from "./components/stage_1";
 import Stage2 from "./components/stage_2";
@@ -8,7 +9,7 @@ import Stage2 from "./components/stage_2";
 const App = () => {
 
   const context = useContext(Mycontext);
-  console.log(context);
+  // console.log(context);
 
   return(
     <div className="wrapper">
