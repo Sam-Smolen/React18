@@ -1,10 +1,11 @@
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link, NavLink, Navigate } from 'react-router-dom';
 import Home from './components/home';
 import Posts from './components/posts';
 import Profile from './components/profile';
 import PostItem from './components/postsItem';
 
 const App = () => {
+  let user = true;
 
     return (
         <BrowserRouter>
@@ -19,9 +20,9 @@ const App = () => {
 
     <ul className="nav nav-pills">
       <li className="nav-item">
-        <Link to="/" className="nav-link">
+        <NavLink to="/" className={({isActive})=> isActive ? 'nav-link active' : 'nav-link'}>
           Home
-        </Link>
+        </NavLink>
       </li>
       <li className="nav-item">
         <Link to="posts" className="nav-link">
@@ -40,7 +41,8 @@ const App = () => {
     <Route path="/" element={<Home />}></Route>
     <Route path="posts" element={<Posts/>}></Route>
     <Route path="posts/:id" element={<PostItem />}></Route>
-    <Route path="profile" element={<Profile />}></Route>
+    {/* <Route path="profile" element={<Navigate replace to='/' />}></Route> */}
+    <Route path="profile" element={user ? <Profile/>:<Navigate replace to='/' />}></Route>
   </Routes>
 </div>
         </BrowserRouter>

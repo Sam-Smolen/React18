@@ -1,10 +1,16 @@
-const Posts = () => {
+import React,{Component} from "react";
+import { withRouter } from "../hoc/withRouter";
 
-    return (
-        <>
-        Posts
-        </>
-    )
+class Posts extends Component{
+
+    render(){
+        console.log(this.props);
+        return (
+            <>
+            Posts
+            </>
+        )
+    }
 }
 
-export default Posts;
+export default withRouter(Posts);
